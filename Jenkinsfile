@@ -4,9 +4,9 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Instalando dependências') {
             steps {
-                echo 'Building...'
+                sh 'npm install'
             }
         }
         stage('Test') {
