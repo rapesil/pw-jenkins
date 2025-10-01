@@ -4,7 +4,7 @@ pipeline {
     // }
     agent {
         docker {
-            image 'node:20-alpine'   // ou node:18, conforme seu projeto
+            image 'node:20-bookworm'   // ou node:18, conforme seu projeto
             args '-u root:root'      // opcional p/ permissões em cache
         }
     }
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'npx playwright install --with-deps'
+                sh 'npx -y playwright@1.55.0 install --with-deps'
                 sh 'npx playwright test'
             }
         }
